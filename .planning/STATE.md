@@ -2,7 +2,7 @@
 
 ## Current Status
 - Current Phase: Phase 2 — Sentralisasi Keuangan & Modul Persediaan.
-- Progress: 65% (Auto-journaling to Central Cash Book implemented).
+- Progress: 75% (Expense management + overbudget interception implemented).
 
 ## Completed Tasks
 - [x] AGENTS.md implementation with strict business rules.
@@ -19,9 +19,13 @@
 - [x] Implement PATCH /api/orders/:id_order/status endpoint.
 - [x] Implement auto-journaling logic (Selesai/Lunas → CashBookEntry with id_cabang tag).
 - [x] Create cashbook service (hub/src/services/cashbook.ts) with mock storage.
+- [x] Create budget service (hub/src/services/budget.ts) with monthly budget ceilings per branch.
+- [x] Create expense service (hub/src/services/expense.ts) with approval workflow.
+- [x] Implement POST /api/expenses/request with overbudget interception (400 Bad Request).
+- [x] Implement PATCH /api/expenses/:id_expense/approve for Hub admin approval.
 
 ## Open Issues / Next Actions
-- [ ] Implement emergency expense approval workflow (F05).
-- [ ] Implement overbudget interception logic (F06).
-- [ ] Add integration tests for auto-journaling and cash book entries.
+- [ ] Add integration tests for expense workflow and overbudget edge cases.
+- [ ] Implement closing discrepancy detection and branch freeze logic (Phase 3).
+- [ ] Build executive dashboard for cash flow visualization (Phase 3).
 - [ ] Define shared database schema with mandatory id_cabang indexing.
